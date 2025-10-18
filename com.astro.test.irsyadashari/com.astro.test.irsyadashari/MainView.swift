@@ -7,137 +7,110 @@
 
 import SwiftUI
 
-// MARK: - User Model
-struct User: Identifiable {
-    let id = UUID()
-    let name: String
-    var isLiked: Bool = false
-}
-
-// MARK: - Main View
 struct GitHubUserListView: View {
-    @State private var searchText: String = ""
-    @State private var sortOrder: SortOrder = .asc
-    @State private var users: [User] = [
-        User(name: "Olivia Martin"),
-        User(name: "Liam Johnson", isLiked: true), // Example liked user
-        User(name: "Sophia Chen"),
-        User(name: "Noah Williams"),
-        User(name: "Isabella Garcia"),
-        User(name: "Ethan Rodriguez"),
-        User(name: "Mia Kim"),
-        User(name: "Lucas Brown"),
-        User(name: "Ava Jones"),
-        User(name: "Leo Davis"),
-        User(name: "Charlotte Miller")
-    ]
+    @StateObject private var viewModel = GitHubUserViewModel()
+    @State private var searchText = "Andy"
+    @State private var sortOrder: SortOrder = .ascending
     
     enum SortOrder {
-        case asc, desc
+        case ascending, descending
     }
     
-    // Computed property for filtered and sorted users
-    var filteredAndSortedUsers: [User] {
-        var sortedUsers = users.sorted { u1, u2 in
-            if sortOrder == .asc {
-                return u1.name < u2.name
+    var sortedUsers: [User] {
+        viewModel.users.sorted { u1, u2 in
+            if sortOrder == .ascending {
+                return u1.login.lowercased() < u2.login.lowercased()
             } else {
-                return u1.name > u2.name
+                return u1.login.lowercased() > u2.login.lowercased()
             }
-        }
-        
-        if searchText.isEmpty {
-            return sortedUsers
-        } else {
-            return sortedUsers.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
     
     var body: some View {
-        NavigationView { // Use NavigationView for the title bar
-            VStack(alignment: .leading, spacing: 0) {
-                // MARK: - Header
-                VStack(alignment: .leading) {
-                    Text("Github User")
-                        .font(.headline)
-                        .foregroundColor(.gray)
-                    Text("Astro Test")
-                        .font(.title2)
-                        .bold()
+        NavigationView {
+            VStack(alignment: .center, spacing: 0) {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Github User")
+                            .font(.headline)
+                            .foregroundColor(.gray)
+                        Text("Astro Test")
+                            .font(.title2)
+                            .bold()
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 10)
+                    
+                    Spacer()
                 }
-                .padding(.horizontal)
-                .padding(.bottom, 10)
                 
-                // MARK: - Search Bar
-                TextField("Search", text: $searchText)
-                    .textFieldStyle(.roundedBorder) // A common style for search fields
+                // Search Bar
+                TextField("Search Users", text: $viewModel.searchText)
+                    .textFieldStyle(.roundedBorder)
                     .padding(.horizontal)
                     .padding(.bottom, 10)
                 
-                // MARK: - Sort Radio Buttons
-                HStack {
-                    // ASC Radio Button
-                    Button(action: { sortOrder = .asc }) {
+                HStack(spacing: 16) {
+                    Button(action: { sortOrder = .ascending }) {
                         HStack {
-                            Image(systemName: sortOrder == .asc ? "circle.fill" : "circle")
-                                .foregroundColor(.accentColor) // Blue circle for selected
+                            Image(systemName: sortOrder == .ascending ? "circle.fill" : "circle")
                             Text("ASC")
-                                .foregroundColor(.primary)
                         }
                     }
-                    .buttonStyle(.plain) // Remove default button styling
-                    
-                    Spacer()
-                        .frame(width: 30) // Spacing between radio buttons
-                    
-                    // DESC Radio Button
-                    Button(action: { sortOrder = .desc }) {
+                    Button(action: { sortOrder = .descending }) {
                         HStack {
-                            Image(systemName: sortOrder == .desc ? "circle.fill" : "circle")
-                                .foregroundColor(.accentColor)
+                            Image(systemName: sortOrder == .descending ? "circle.fill" : "circle")
                             Text("DESC")
-                                .foregroundColor(.primary)
                         }
                     }
-                    .buttonStyle(.plain)
-                    
                     Spacer()
                 }
+                .foregroundColor(.accentColor)
                 .padding(.horizontal)
-                .padding(.vertical, 16)
+                .padding(.vertical, 10)
                 
-                // MARK: - User List
-                List {
-                    ForEach(filteredAndSortedUsers) { user in
+                // User List
+                if viewModel.isLoading {
+                    Spacer()
+                    ProgressView("Searching...")
+                    Spacer()
+                } else {
+                    List(sortedUsers) { user in
                         HStack {
-                            Image(systemName: "person.circle.fill") // Placeholder for avatar
-                                .resizable()
-                                .frame(width: 40, height: 40)
-                                .foregroundColor(.gray)
-                            Text(user.name)
+                            AsyncImage(url: URL(string: user.avatarUrl)) { image in
+                                image.resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .clipShape(Circle())
+                            } placeholder: {
+                                Image(systemName: "person.circle.fill")
+                                    .foregroundColor(.gray)
+                            }
+                            .frame(width: 44, height: 44)
+                            
+                            Text(user.login)
                                 .font(.body)
+                            
                             Spacer()
+                            
                             Button(action: {
-                                // Toggle like status for the user
-                                if let index = users.firstIndex(where: { $0.id == user.id }) {
-                                    users[index].isLiked.toggle()
-                                }
+                                viewModel.toggleLike(for: user)
                             }) {
                                 Image(systemName: user.isLiked ? "heart.fill" : "heart")
                                     .foregroundColor(user.isLiked ? .red : .gray)
                             }
-                            .buttonStyle(.plain) // Remove default button styling
+                            .buttonStyle(.plain)
                         }
                     }
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain) // Use plain list style to remove default separators/background
             }
-            .navigationBarHidden(true) // Hide the default NavigationView bar to use our custom header
+            .alert(item: $viewModel.alertMessage) { message in
+                Alert(title: Text("Error"), message: Text(message), dismissButton: .default(Text("OK")))
+            }
         }
     }
 }
 
-// MARK: - Preview Provider
 struct GitHubUserListView_Previews: PreviewProvider {
     static var previews: some View {
         GitHubUserListView()
