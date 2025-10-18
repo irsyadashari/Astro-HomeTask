@@ -12,10 +12,21 @@ import Combine // 1. Import the Combine framework
 
 @MainActor
 class GitHubUserViewModel: ObservableObject {
-    @Published var searchText = "Andy"
+    @Published var searchText = ""
     @Published var users: [User] = []
     @Published var isLoading = false
     @Published var alertMessage: String?
+    @Published var sortOrder: SortOrder = .ascending
+    
+    var sortedUsers: [User] {
+        users.sorted { u1, u2 in
+            if sortOrder == .ascending {
+                return u1.login.lowercased() < u2.login.lowercased()
+            } else {
+                return u1.login.lowercased() > u2.login.lowercased()
+            }
+        }
+    }
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -66,4 +77,8 @@ class GitHubUserViewModel: ObservableObject {
             users[index].isLiked.toggle()
         }
     }
+}
+
+enum SortOrder {
+    case ascending, descending
 }

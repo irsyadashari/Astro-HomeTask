@@ -9,105 +9,110 @@ import SwiftUI
 
 struct GitHubUserListView: View {
     @StateObject private var viewModel = GitHubUserViewModel()
-    @State private var searchText = "Andy"
-    @State private var sortOrder: SortOrder = .ascending
     
-    enum SortOrder {
-        case ascending, descending
-    }
-    
-    var sortedUsers: [User] {
-        viewModel.users.sorted { u1, u2 in
-            if sortOrder == .ascending {
-                return u1.login.lowercased() < u2.login.lowercased()
-            } else {
-                return u1.login.lowercased() > u2.login.lowercased()
-            }
-        }
-    }
-    
+    // MARK: - Main Body
     var body: some View {
         NavigationView {
-            VStack(alignment: .center, spacing: 0) {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Github User")
-                            .font(.headline)
-                            .foregroundColor(.gray)
-                        Text("Astro Test")
-                            .font(.title2)
-                            .bold()
-                    }
-                    .padding(.horizontal)
-                    .padding(.bottom, 10)
-                    
-                    Spacer()
-                }
-                
-                // Search Bar
-                TextField("Search Users", text: $viewModel.searchText)
-                    .textFieldStyle(.roundedBorder)
-                    .padding(.horizontal)
-                    .padding(.bottom, 10)
-                
-                HStack(spacing: 16) {
-                    Button(action: { sortOrder = .ascending }) {
-                        HStack {
-                            Image(systemName: sortOrder == .ascending ? "circle.fill" : "circle")
-                            Text("ASC")
-                        }
-                    }
-                    Button(action: { sortOrder = .descending }) {
-                        HStack {
-                            Image(systemName: sortOrder == .descending ? "circle.fill" : "circle")
-                            Text("DESC")
-                        }
-                    }
-                    Spacer()
-                }
-                .foregroundColor(.accentColor)
-                .padding(.horizontal)
-                .padding(.vertical, 10)
-                
-                // User List
-                if viewModel.isLoading {
-                    Spacer()
-                    ProgressView("Searching...")
-                    Spacer()
-                } else {
-                    List(sortedUsers) { user in
-                        HStack {
-                            AsyncImage(url: URL(string: user.avatarUrl)) { image in
-                                image.resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .clipShape(Circle())
-                            } placeholder: {
-                                Image(systemName: "person.circle.fill")
-                                    .foregroundColor(.gray)
-                            }
-                            .frame(width: 44, height: 44)
-                            
-                            Text(user.login)
-                                .font(.body)
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                viewModel.toggleLike(for: user)
-                            }) {
-                                Image(systemName: user.isLiked ? "heart.fill" : "heart")
-                                    .foregroundColor(user.isLiked ? .red : .gray)
-                            }
-                            .buttonStyle(.plain)
-                        }
-                    }
-                    .listStyle(.plain)
-                }
+            VStack(spacing: 0) {
+                headerView
+                searchBar
+                sortControls
+                userList
             }
             .alert(item: $viewModel.alertMessage) { message in
                 Alert(title: Text("Error"), message: Text(message), dismissButton: .default(Text("OK")))
             }
         }
+    }
+    
+    // MARK: - Header View
+    private var headerView: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Github User")
+                    .font(.headline)
+                    .foregroundColor(.gray)
+                Text("Astro Test")
+                    .font(.title2)
+                    .bold()
+            }
+            Spacer()
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 16)
+    }
+    
+    // MARK: - Search Bar View
+    private var searchBar: some View {
+        HStack(spacing: 8) {
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(.gray)
+            
+            TextField("Search Users", text: $viewModel.searchText)
+        }
+        .padding(8)
+        .background(Color(.systemGray6))
+        .cornerRadius(10)
+        .padding(.horizontal)
+        .padding(.bottom, 10)
+    }
+    
+    // MARK: - Control View ASC - DESC
+    private var sortControls: some View {
+        HStack(spacing: 0) {
+            SortOptionView(
+                title: "ASC",
+                isSelected: viewModel.sortOrder == .ascending
+            ) {
+                viewModel.sortOrder = .ascending
+            }
+            
+            SortOptionView(
+                title: "DESC",
+                isSelected: viewModel.sortOrder == .descending
+            ) {
+                viewModel.sortOrder = .descending
+            }
+        }
+        .background(Color(.systemGray5))
+        .clipShape(Capsule())
+        .padding(.horizontal)
+        .padding(.vertical, 10)
+    }
+    
+    // MARK: - Users List View
+    @ViewBuilder
+    private var userList: some View {
+        if viewModel.isLoading {
+            ProgressView("Searching...")
+                .frame(maxHeight: .infinity)
+        } else if viewModel.users.isEmpty {
+            emptyStateView
+        } else {
+            List(viewModel.sortedUsers) { user in
+                UserRowView(user: user) {
+                    viewModel.toggleLike(for: user)
+                }
+            }
+            .listStyle(.plain)
+        }
+    }
+    
+    private var emptyStateView: some View {
+        VStack(spacing: 12) {
+            Image(systemName: "person.3.fill")
+                .font(.system(size: 50))
+                .foregroundColor(.secondary)
+            Text("Starts Searching")
+                .font(.title2)
+                .bold()
+            Text("Try a different search term to find GitHub users.")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+        }
+        .frame(maxHeight: .infinity)
     }
 }
 
