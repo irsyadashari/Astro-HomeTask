@@ -17,6 +17,7 @@ class GitHubUserViewModel: ObservableObject {
     @Published var isLoadingNextPage = false
     @Published var alertMessage: String?
     @Published var sortOrder: SortOrder = .ascending
+    @Published var searchHasCompleted = false
     
     // Current Pagination index to call API
     private var currentPage = 1
@@ -48,6 +49,9 @@ class GitHubUserViewModel: ObservableObject {
     }
     
     private var cancellables = Set<AnyCancellable>()
+    
+    // A dedicated property to hold our single network request
+    private var fetchUsersCancellable: AnyCancellable?
     
     init(context: NSManagedObjectContext) {
         self.context = context
@@ -87,6 +91,7 @@ class GitHubUserViewModel: ObservableObject {
         currentPage = 1
         canLoadMorePages = true
         currentQuery = query
+        searchHasCompleted = false
         
         fetchUsers()
     }
@@ -111,11 +116,14 @@ class GitHubUserViewModel: ObservableObject {
             return
         }
         
-        let perPage = 10
+        let perPage = 30
         guard let url = URL(string: "https://api.github.com/search/users?q=\(currentQuery)&page=\(currentPage)&per_page=\(perPage)") else {
             self.alertMessage = "Invalid URL"
             return
         }
+        
+        // Cancel any previous, in-flight request before starting a new one
+        fetchUsersCancellable?.cancel()
         
         if currentPage == 1 {
             isLoading = true
@@ -125,39 +133,34 @@ class GitHubUserViewModel: ObservableObject {
             isLoadingNextPage = true
         }
         
-        URLSession.shared.dataTaskPublisher(for: url)
+        fetchUsersCancellable = URLSession.shared.dataTaskPublisher(for: url)
             .tryMap { data, response -> Data in
-                guard let httpResponse = response as? HTTPURLResponse,
-                      httpResponse.statusCode == 200 else {
-                    throw URLError(.badServerResponse)
-                }
-                
-                //Check for the rate limit error
-                if httpResponse.statusCode == 403 {
-                    throw APIError.rateLimitExceeded
-                }
-                
-                //  general check for other bad statuses
-                guard (200...299).contains(httpResponse.statusCode) else {
+                guard let httpResponse = response as? HTTPURLResponse else {
                     throw APIError.badServerResponse
                 }
+                
+                if !(200...299).contains(httpResponse.statusCode) {
+                    if let gitHubError = try? JSONDecoder().decode(GitHubErrorResponse.self, from: data) {
+                        throw APIError.rateLimitExceeded(message: gitHubError.message)
+                    } else {
+                        throw APIError.badServerResponse
+                    }
+                }
+                
                 return data
             }
             .decode(type: GitHubSearchResponse.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
+                
                 self?.isLoading = false
                 self?.isLoadingNextPage = false
-                print("linecu: receiveCompletion")
+                self?.searchHasCompleted = true
+                
                 if case .failure(let error) = completion {
-                    print("--- FETCH FAILED with error: \(error) ---")
-                    
                     switch error {
-                    case let apiError as APIError:
-                        self?.alertMessage = apiError.errorDescription
-                        
                     case is URLError:
-                        self?.alertMessage = "Network error. Please check your connection and try again."
+                        self?.alertMessage = error.localizedDescription
                         
                     case is DecodingError:
                         self?.alertMessage = "Could not process the server's response. Please try again later."
@@ -177,7 +180,6 @@ class GitHubUserViewModel: ObservableObject {
                 self.currentPage += 1
                 self.canLoadMorePages = self.users.count < response.totalCount
             })
-            .store(in: &cancellables)
     }
     
     func toggleLike(for user: User) {

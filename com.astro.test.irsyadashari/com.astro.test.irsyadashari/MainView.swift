@@ -93,7 +93,7 @@ struct GitHubUserListView: View {
             ProgressView("Searching...")
                 .frame(maxHeight: .infinity)
         } else if viewModel.users.isEmpty {
-            emptyStateView
+            emptyStateView(searchHasCompleted: viewModel.searchHasCompleted)
         } else {
             List {
                 ForEach(viewModel.displayedUsers) { user in
@@ -130,19 +130,33 @@ struct GitHubUserListView: View {
         }
     }
     
-    private var emptyStateView: some View {
+    private func emptyStateView(searchHasCompleted: Bool) -> some View {
         VStack(spacing: 12) {
-            Image(systemName: "person.3.fill")
-                .font(.system(size: 50))
-                .foregroundColor(.secondary)
-            Text("Starts Searching")
-                .font(.title2)
-                .bold()
-            Text("Try a different search term to find GitHub users.")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
+            if searchHasCompleted {
+                Image(systemName: "magnifyingglass")
+                    .font(.system(size: 50))
+                    .foregroundColor(.secondary)
+                Text("No Users Found")
+                    .font(.title2)
+                    .bold()
+                Text("There are no users that match your search. Please try another name.")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+            } else {
+                Image(systemName: "person.3.fill")
+                    .font(.system(size: 50))
+                    .foregroundColor(.secondary)
+                Text("Search GitHub Users")
+                    .font(.title2)
+                    .bold()
+                Text("Type in the search bar to find users.")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+            }
         }
         .frame(maxHeight: .infinity)
     }

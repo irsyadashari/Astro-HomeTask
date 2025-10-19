@@ -8,13 +8,13 @@
 import Foundation
 
 enum APIError: Error, LocalizedError {
-    case rateLimitExceeded
+    case rateLimitExceeded(message: String)
     case badServerResponse
     
     var errorDescription: String? {
         switch self {
-        case .rateLimitExceeded:
-            return "API rate limit reached. Please wait a moment before trying again."
+        case .rateLimitExceeded(let message):
+            return message
         case .badServerResponse:
             return "The server returned an invalid response."
         }
