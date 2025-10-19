@@ -17,8 +17,8 @@ public protocol PersistenceServiceProtocol {
 }
 
 public final class PersistenceServiceImpl: PersistenceServiceProtocol {
-    private let context: NSManagedObjectContext
-    private let sortOrderKey = "sortOrderSetting"
+    private let context: NSManagedObjectContext // For Core Data
+    private let sortOrderKey = "sortOrderSetting" // For User Defaults
     
     public init(context: NSManagedObjectContext) {
         self.context = context

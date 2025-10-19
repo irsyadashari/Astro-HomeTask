@@ -21,10 +21,10 @@ class GitHubUserViewModel: ObservableObject {
     @Published var sortOrder: SortOrderType = .ascending
     @Published var searchHasCompleted = false
     
-    private var currentPage = 1
     var canLoadMorePages = true
-    private var currentQuery = ""
     
+    private var currentPage = 1
+    private var currentQuery = ""
     private var cancellables = Set<AnyCancellable>()
     private var fetchUsersCancellable: AnyCancellable?
     
@@ -49,7 +49,8 @@ class GitHubUserViewModel: ObservableObject {
     
     private func setupSearchDebounce() {
         $searchText
-            .debounce(for: .milliseconds(600), scheduler: RunLoop.main)
+            .dropFirst()
+            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
             .removeDuplicates()
             .sink { [weak self] debouncedQuery in
                 self?.searchUsers(with: debouncedQuery)

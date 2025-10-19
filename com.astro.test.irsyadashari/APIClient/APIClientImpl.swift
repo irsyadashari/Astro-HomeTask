@@ -38,7 +38,7 @@ public final class APIClientImpl: APIClientProtocol {
                     // Try to decode the specific GitHub error message
                     if let gitHubError = try? JSONDecoder().decode(GitHubErrorResponse.self, from: data) {
                         // Throw custom error with the message
-                        throw APIError.rateLimitExceeded(message: gitHubError.message)
+                        throw APIError.githubErrorMessage(message: gitHubError.message)
                     } else {
                         // Throw a generic error if the response is bad or undecodable
                         throw APIError.badServerResponse

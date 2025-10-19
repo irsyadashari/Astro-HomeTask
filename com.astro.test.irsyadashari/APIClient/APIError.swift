@@ -8,12 +8,12 @@
 import Foundation
 
 public enum APIError: Error, LocalizedError {
-    case rateLimitExceeded(message: String)
+    case githubErrorMessage(message: String)
     case badServerResponse
     
     public var errorDescription: String? {
         switch self {
-        case .rateLimitExceeded(let message):
+        case .githubErrorMessage(let message):
             return message
         case .badServerResponse:
             return "The server returned an invalid response."

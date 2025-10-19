@@ -93,7 +93,7 @@ struct GitHubUserListView: View {
             ProgressView("Searching...")
                 .frame(maxHeight: .infinity)
         } else if viewModel.users.isEmpty {
-            emptyStateView(searchHasCompleted: viewModel.searchHasCompleted)
+            emptyStateView()
         } else {
             List {
                 ForEach(viewModel.displayedUsers) { user in
@@ -130,9 +130,9 @@ struct GitHubUserListView: View {
         }
     }
     
-    private func emptyStateView(searchHasCompleted: Bool) -> some View {
+    private func emptyStateView() -> some View {
         VStack(spacing: 12) {
-            if searchHasCompleted {
+            if viewModel.searchHasCompleted && !viewModel.searchText.isEmpty {
                 Image(systemName: "magnifyingglass")
                     .font(.system(size: 50))
                     .foregroundColor(.secondary)
