@@ -17,8 +17,14 @@ class GitHubUserViewModel: ObservableObject {
     @Published var alertMessage: String?
     @Published var sortOrder: SortOrder = .ascending
     
+    
     private var currentPage = 1
     var canLoadMorePages = true
+    
+    // Add a key for UserDefaults
+    private let sortOrderKey = "sortOrderSetting"
+    
+    // Current search query
     private var currentQuery = ""
     
     var displayedUsers: [User] {
@@ -41,6 +47,12 @@ class GitHubUserViewModel: ObservableObject {
                 self?.searchUsers(with: debouncedQuery)
             }
             .store(in: &cancellables)
+        
+        // Load User Settings
+        if let savedData = UserDefaults.standard.data(forKey: sortOrderKey),
+           let decodedOrder = try? JSONDecoder().decode(SortOrder.self, from: savedData) {
+            self.sortOrder = decodedOrder
+        }
     }
     
     func searchUsers(with query: String) {
@@ -143,22 +155,11 @@ class GitHubUserViewModel: ObservableObject {
             users[index].isLiked.toggle()
         }
     }
-}
-
-enum SortOrder {
-    case ascending, descending
-}
-
-enum APIError: Error, LocalizedError {
-    case rateLimitExceeded
-    case badServerResponse
     
-    var errorDescription: String? {
-        switch self {
-        case .rateLimitExceeded:
-            return "API rate limit reached. Please wait a moment before trying again."
-        case .badServerResponse:
-            return "The server returned an invalid response."
+    func toggleOrder(sort: SortOrder) {
+        sortOrder = sort
+        if let encodedData = try? JSONEncoder().encode(sortOrder) {
+            UserDefaults.standard.set(encodedData, forKey: sortOrderKey)
         }
     }
 }

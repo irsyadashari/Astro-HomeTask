@@ -64,13 +64,13 @@ struct GitHubUserListView: View {
                 title: "ASC",
                 isSelected: viewModel.sortOrder == .ascending
             ) {
-                viewModel.sortOrder = .ascending
+                viewModel.toggleOrder(sort: .ascending)
             }
             SortOptionView(
                 title: "DESC",
                 isSelected: viewModel.sortOrder == .descending
             ) {
-                viewModel.sortOrder = .descending
+                viewModel.toggleOrder(sort: .descending)
             }
         }
         .background(Color(.systemGray5))
