@@ -6,19 +6,22 @@
 //
 
 import Foundation
-
-import Foundation
-import Combine // 1. Import the Combine framework
+import Combine
 
 @MainActor
 class GitHubUserViewModel: ObservableObject {
     @Published var searchText = ""
     @Published var users: [User] = []
     @Published var isLoading = false
+    @Published var isLoadingNextPage = false
     @Published var alertMessage: String?
     @Published var sortOrder: SortOrder = .ascending
     
-    var sortedUsers: [User] {
+    private var currentPage = 1
+    var canLoadMorePages = true
+    private var currentQuery = ""
+    
+    var displayedUsers: [User] {
         users.sorted { u1, u2 in
             if sortOrder == .ascending {
                 return u1.login.lowercased() < u2.login.lowercased()
@@ -32,7 +35,7 @@ class GitHubUserViewModel: ObservableObject {
     
     init() {
         $searchText
-            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+            .debounce(for: .milliseconds(600), scheduler: RunLoop.main)
             .removeDuplicates()
             .sink { [weak self] debouncedQuery in
                 self?.searchUsers(with: debouncedQuery)
@@ -41,17 +44,48 @@ class GitHubUserViewModel: ObservableObject {
     }
     
     func searchUsers(with query: String) {
-        guard !query.isEmpty else {
+        // Reset everything for a new search
+        users = []
+        currentPage = 1
+        canLoadMorePages = true
+        currentQuery = query
+        
+        fetchUsers()
+    }
+    
+    func loadMoreContentIfNeeded(currentUser user: User?) {
+        guard let user = user, let lastUser = displayedUsers.last else {
+            return
+        }
+        
+        if user.id == lastUser.id {
+            fetchUsers()
+        }
+    }
+    
+    func fetchUsers() {
+        guard !isLoading, !isLoadingNextPage, canLoadMorePages else {
+            return
+        }
+        
+        guard !currentQuery.isEmpty else {
             self.users = []
             return
         }
         
-        guard let url = URL(string: "https://api.github.com/search/users?q=\(query)") else {
+        let perPage = 10
+        guard let url = URL(string: "https://api.github.com/search/users?q=\(currentQuery)&page=\(currentPage)&per_page=\(perPage)") else {
             self.alertMessage = "Invalid URL"
             return
         }
         
-        self.isLoading = true
+        if currentPage == 1 {
+            isLoading = true
+            print("linecu: isLoadingNextPage")
+        } else {
+            print("linecu: isLoadingNextPage")
+            isLoadingNextPage = true
+        }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .tryMap { data, response -> Data in
@@ -59,16 +93,48 @@ class GitHubUserViewModel: ObservableObject {
                       httpResponse.statusCode == 200 else {
                     throw URLError(.badServerResponse)
                 }
+                
+                //Check for the rate limit error
+                if httpResponse.statusCode == 403 {
+                    throw APIError.rateLimitExceeded
+                }
+                
+                //  general check for other bad statuses
+                guard (200...299).contains(httpResponse.statusCode) else {
+                    throw APIError.badServerResponse
+                }
                 return data
             }
             .decode(type: GitHubSearchResponse.self, decoder: JSONDecoder())
-            .map(\.items)
-            .replaceError(with: [])
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] receivedUsers in
+            .sink(receiveCompletion: { [weak self] completion in
                 self?.isLoading = false
-                self?.users = receivedUsers
-            }
+                self?.isLoadingNextPage = false
+                print("linecu: receiveCompletion")
+                if case .failure(let error) = completion {
+                    print("--- FETCH FAILED with error: \(error) ---")
+                    
+                    switch error {
+                    case let apiError as APIError:
+                        self?.alertMessage = apiError.errorDescription
+                        
+                    case is URLError:
+                        self?.alertMessage = "Network error. Please check your connection and try again."
+                        
+                    case is DecodingError:
+                        self?.alertMessage = "Could not process the server's response. Please try again later."
+                        
+                    default:
+                        self?.alertMessage = "An unknown error occurred."
+                    }
+                }
+            }, receiveValue: { [weak self] response in
+                print("linecu: receiveValue")
+                // 5. Append new users and update pagination state
+                self?.users.append(contentsOf: response.items)
+                self?.currentPage += 1
+                self?.canLoadMorePages = (self?.users.count ?? 0) < response.totalCount
+            })
             .store(in: &cancellables)
     }
     
@@ -81,4 +147,18 @@ class GitHubUserViewModel: ObservableObject {
 
 enum SortOrder {
     case ascending, descending
+}
+
+enum APIError: Error, LocalizedError {
+    case rateLimitExceeded
+    case badServerResponse
+    
+    var errorDescription: String? {
+        switch self {
+        case .rateLimitExceeded:
+            return "API rate limit reached. Please wait a moment before trying again."
+        case .badServerResponse:
+            return "The server returned an invalid response."
+        }
+    }
 }

@@ -18,6 +18,7 @@ struct GitHubUserListView: View {
                 searchBar
                 sortControls
                 userList
+                bottomIndicator
             }
             .alert(item: $viewModel.alertMessage) { message in
                 Alert(title: Text("Error"), message: Text(message), dismissButton: .default(Text("OK")))
@@ -47,7 +48,6 @@ struct GitHubUserListView: View {
         HStack(spacing: 8) {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.gray)
-            
             TextField("Search Users", text: $viewModel.searchText)
         }
         .padding(8)
@@ -66,7 +66,6 @@ struct GitHubUserListView: View {
             ) {
                 viewModel.sortOrder = .ascending
             }
-            
             SortOptionView(
                 title: "DESC",
                 isSelected: viewModel.sortOrder == .descending
@@ -89,12 +88,38 @@ struct GitHubUserListView: View {
         } else if viewModel.users.isEmpty {
             emptyStateView
         } else {
-            List(viewModel.sortedUsers) { user in
-                UserRowView(user: user) {
-                    viewModel.toggleLike(for: user)
+            List {
+                ForEach(viewModel.displayedUsers) { user in
+                    UserRowView(user: user) {
+                        viewModel.toggleLike(for: user)
+                    }
+                    .onAppear {
+                        viewModel.loadMoreContentIfNeeded(currentUser: user)
+                    }
                 }
             }
             .listStyle(.plain)
+        }
+    }
+    
+    @ViewBuilder
+    private var bottomIndicator: some View {
+        if viewModel.isLoadingNextPage {
+            HStack {
+                Spacer()
+                ProgressView()
+                Spacer()
+            }
+            .padding(.vertical)
+        } else if !viewModel.canLoadMorePages && !viewModel.users.isEmpty {
+            HStack {
+                Spacer()
+                Text("End of Results")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                Spacer()
+            }
+            .padding(.vertical, 8)
         }
     }
     

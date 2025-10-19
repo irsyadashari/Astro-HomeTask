@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct GitHubSearchResponse: Codable {
+    let totalCount: Int
     let items: [User]
+    
+    enum CodingKeys: String, CodingKey {
+        case totalCount = "total_count"
+        case items
+    }
 }
 
-struct User: Identifiable, Codable {
+struct User: Identifiable, Codable, Equatable {
     let id: Int
     let login: String
     let avatarUrl: String
