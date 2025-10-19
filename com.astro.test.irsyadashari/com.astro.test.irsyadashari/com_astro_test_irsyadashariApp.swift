@@ -14,6 +14,7 @@ struct com_astro_test_irsyadashariApp: App {
     var body: some Scene {
         WindowGroup {
             GitHubUserListView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

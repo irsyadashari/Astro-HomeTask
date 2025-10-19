@@ -8,7 +8,14 @@
 import SwiftUI
 
 struct GitHubUserListView: View {
-    @StateObject private var viewModel = GitHubUserViewModel()
+    @Environment(\.managedObjectContext) private var viewContext
+    @StateObject private var viewModel: GitHubUserViewModel
+    
+    init() {
+        _viewModel = StateObject(
+            wrappedValue: GitHubUserViewModel(context: PersistenceController.shared.container.viewContext)
+        )
+    }
     
     // MARK: - Main Body
     var body: some View {
@@ -144,5 +151,6 @@ struct GitHubUserListView: View {
 struct GitHubUserListView_Previews: PreviewProvider {
     static var previews: some View {
         GitHubUserListView()
+            .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
     }
 }
