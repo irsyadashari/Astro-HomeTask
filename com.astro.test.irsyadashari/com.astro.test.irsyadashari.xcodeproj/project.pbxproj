@@ -6,6 +6,22 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4D9ACB3E2EA4CC2800C307E1 /* APIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9ACB332EA4CC2800C307E1 /* APIClient.framework */; };
+		4D9ACB482EA4CC2800C307E1 /* APIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9ACB332EA4CC2800C307E1 /* APIClient.framework */; };
+		4D9ACB492EA4CC2800C307E1 /* APIClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9ACB332EA4CC2800C307E1 /* APIClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D9ACB642EA4CCAF00C307E1 /* PersistenceService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9ACB592EA4CCAE00C307E1 /* PersistenceService.framework */; };
+		4D9ACB6E2EA4CCAF00C307E1 /* PersistenceService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9ACB592EA4CCAE00C307E1 /* PersistenceService.framework */; };
+		4D9ACB6F2EA4CCAF00C307E1 /* PersistenceService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9ACB592EA4CCAE00C307E1 /* PersistenceService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D9ACB862EA4CD0400C307E1 /* Repository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9ACB7B2EA4CD0300C307E1 /* Repository.framework */; };
+		4D9ACB902EA4CD0400C307E1 /* Repository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9ACB7B2EA4CD0300C307E1 /* Repository.framework */; };
+		4D9ACB912EA4CD0400C307E1 /* Repository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9ACB7B2EA4CD0300C307E1 /* Repository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D9ACBA42EA4D09C00C307E1 /* PersistenceService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9ACB592EA4CCAE00C307E1 /* PersistenceService.framework */; };
+		4D9ACBA52EA4D09C00C307E1 /* PersistenceService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9ACB592EA4CCAE00C307E1 /* PersistenceService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D9ACBA92EA4D0C800C307E1 /* APIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9ACB332EA4CC2800C307E1 /* APIClient.framework */; };
+		4D9ACBAA2EA4D0C800C307E1 /* APIClient.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D9ACB332EA4CC2800C307E1 /* APIClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		4D9ACAE12EA31E6A00C307E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,17 +37,151 @@
 			remoteGlobalIDString = 4D9ACACD2EA31E6800C307E1;
 			remoteInfo = com.astro.test.irsyadashari;
 		};
+		4D9ACB3F2EA4CC2800C307E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9ACAC62EA31E6800C307E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D9ACB322EA4CC2800C307E1;
+			remoteInfo = APIClient;
+		};
+		4D9ACB412EA4CC2800C307E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9ACAC62EA31E6800C307E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D9ACACD2EA31E6800C307E1;
+			remoteInfo = com.astro.test.irsyadashari;
+		};
+		4D9ACB462EA4CC2800C307E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9ACAC62EA31E6800C307E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D9ACB322EA4CC2800C307E1;
+			remoteInfo = APIClient;
+		};
+		4D9ACB652EA4CCAF00C307E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9ACAC62EA31E6800C307E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D9ACB582EA4CCAE00C307E1;
+			remoteInfo = PersistenceService;
+		};
+		4D9ACB672EA4CCAF00C307E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9ACAC62EA31E6800C307E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D9ACACD2EA31E6800C307E1;
+			remoteInfo = com.astro.test.irsyadashari;
+		};
+		4D9ACB6C2EA4CCAF00C307E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9ACAC62EA31E6800C307E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D9ACB582EA4CCAE00C307E1;
+			remoteInfo = PersistenceService;
+		};
+		4D9ACB872EA4CD0400C307E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9ACAC62EA31E6800C307E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D9ACB7A2EA4CD0300C307E1;
+			remoteInfo = Repository;
+		};
+		4D9ACB892EA4CD0400C307E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9ACAC62EA31E6800C307E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D9ACACD2EA31E6800C307E1;
+			remoteInfo = com.astro.test.irsyadashari;
+		};
+		4D9ACB8E2EA4CD0400C307E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9ACAC62EA31E6800C307E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D9ACB7A2EA4CD0300C307E1;
+			remoteInfo = Repository;
+		};
+		4D9ACBA62EA4D09C00C307E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9ACAC62EA31E6800C307E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D9ACB582EA4CCAE00C307E1;
+			remoteInfo = PersistenceService;
+		};
+		4D9ACBAB2EA4D0C800C307E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D9ACAC62EA31E6800C307E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D9ACB322EA4CC2800C307E1;
+			remoteInfo = APIClient;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4D9ACB4D2EA4CC2800C307E1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4D9ACB6F2EA4CCAF00C307E1 /* PersistenceService.framework in Embed Frameworks */,
+				4D9ACB492EA4CC2800C307E1 /* APIClient.framework in Embed Frameworks */,
+				4D9ACB912EA4CD0400C307E1 /* Repository.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACBA82EA4D09C00C307E1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4D9ACBA52EA4D09C00C307E1 /* PersistenceService.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACBAD2EA4D0C900C307E1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4D9ACBAA2EA4D0C800C307E1 /* APIClient.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4D9ACACE2EA31E6800C307E1 /* com.astro.test.irsyadashari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.astro.test.irsyadashari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9ACAE02EA31E6A00C307E1 /* com.astro.test.irsyadashariTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = com.astro.test.irsyadashariTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D9ACAEA2EA31E6A00C307E1 /* com.astro.test.irsyadashariUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = com.astro.test.irsyadashariUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D9ACB332EA4CC2800C307E1 /* APIClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = APIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D9ACB3D2EA4CC2800C307E1 /* APIClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APIClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D9ACB592EA4CCAE00C307E1 /* PersistenceService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PersistenceService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D9ACB632EA4CCAF00C307E1 /* PersistenceServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersistenceServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D9ACB7B2EA4CD0300C307E1 /* Repository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Repository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D9ACB852EA4CD0400C307E1 /* RepositoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RepositoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4D9ACBAF2EA4D20C00C307E1 /* Exceptions for "com.astro.test.irsyadashari" folder in "PersistenceService" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				GitHubUsers.xcdatamodeld,
+			);
+			target = 4D9ACB582EA4CCAE00C307E1 /* PersistenceService */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4D9ACAD02EA31E6800C307E1 /* com.astro.test.irsyadashari */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4D9ACBAF2EA4D20C00C307E1 /* Exceptions for "com.astro.test.irsyadashari" folder in "PersistenceService" target */,
+			);
 			path = com.astro.test.irsyadashari;
 			sourceTree = "<group>";
 		};
@@ -45,6 +195,36 @@
 			path = com.astro.test.irsyadashariUITests;
 			sourceTree = "<group>";
 		};
+		4D9ACB342EA4CC2800C307E1 /* APIClient */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		4D9ACB432EA4CC2800C307E1 /* APIClientTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = APIClientTests;
+			sourceTree = "<group>";
+		};
+		4D9ACB5A2EA4CCAE00C307E1 /* PersistenceService */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PersistenceService;
+			sourceTree = "<group>";
+		};
+		4D9ACB692EA4CCAF00C307E1 /* PersistenceServiceTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PersistenceServiceTests;
+			sourceTree = "<group>";
+		};
+		4D9ACB7C2EA4CD0300C307E1 /* Repository */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		4D9ACB8B2EA4CD0400C307E1 /* RepositoryTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = RepositoryTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +232,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9ACB6E2EA4CCAF00C307E1 /* PersistenceService.framework in Frameworks */,
+				4D9ACB482EA4CC2800C307E1 /* APIClient.framework in Frameworks */,
+				4D9ACB902EA4CD0400C307E1 /* Repository.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +252,53 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4D9ACB302EA4CC2800C307E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB3A2EA4CC2800C307E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D9ACB3E2EA4CC2800C307E1 /* APIClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB562EA4CCAE00C307E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D9ACBA92EA4D0C800C307E1 /* APIClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB602EA4CCAF00C307E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D9ACB642EA4CCAF00C307E1 /* PersistenceService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB782EA4CD0300C307E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D9ACBA42EA4D09C00C307E1 /* PersistenceService.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB822EA4CD0400C307E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D9ACB862EA4CD0400C307E1 /* Repository.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +308,13 @@
 				4D9ACAD02EA31E6800C307E1 /* com.astro.test.irsyadashari */,
 				4D9ACAE32EA31E6A00C307E1 /* com.astro.test.irsyadashariTests */,
 				4D9ACAED2EA31E6A00C307E1 /* com.astro.test.irsyadashariUITests */,
+				4D9ACB342EA4CC2800C307E1 /* APIClient */,
+				4D9ACB432EA4CC2800C307E1 /* APIClientTests */,
+				4D9ACB5A2EA4CCAE00C307E1 /* PersistenceService */,
+				4D9ACB692EA4CCAF00C307E1 /* PersistenceServiceTests */,
+				4D9ACB7C2EA4CD0300C307E1 /* Repository */,
+				4D9ACB8B2EA4CD0400C307E1 /* RepositoryTests */,
+				4D9ACBA32EA4D09C00C307E1 /* Frameworks */,
 				4D9ACACF2EA31E6800C307E1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,11 +325,48 @@
 				4D9ACACE2EA31E6800C307E1 /* com.astro.test.irsyadashari.app */,
 				4D9ACAE02EA31E6A00C307E1 /* com.astro.test.irsyadashariTests.xctest */,
 				4D9ACAEA2EA31E6A00C307E1 /* com.astro.test.irsyadashariUITests.xctest */,
+				4D9ACB332EA4CC2800C307E1 /* APIClient.framework */,
+				4D9ACB3D2EA4CC2800C307E1 /* APIClientTests.xctest */,
+				4D9ACB592EA4CCAE00C307E1 /* PersistenceService.framework */,
+				4D9ACB632EA4CCAF00C307E1 /* PersistenceServiceTests.xctest */,
+				4D9ACB7B2EA4CD0300C307E1 /* Repository.framework */,
+				4D9ACB852EA4CD0400C307E1 /* RepositoryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4D9ACBA32EA4D09C00C307E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4D9ACB2E2EA4CC2800C307E1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB542EA4CCAE00C307E1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB762EA4CD0300C307E1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		4D9ACACD2EA31E6800C307E1 /* com.astro.test.irsyadashari */ = {
@@ -102,10 +376,14 @@
 				4D9ACACA2EA31E6800C307E1 /* Sources */,
 				4D9ACACB2EA31E6800C307E1 /* Frameworks */,
 				4D9ACACC2EA31E6800C307E1 /* Resources */,
+				4D9ACB4D2EA4CC2800C307E1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4D9ACB472EA4CC2800C307E1 /* PBXTargetDependency */,
+				4D9ACB6D2EA4CCAF00C307E1 /* PBXTargetDependency */,
+				4D9ACB8F2EA4CD0400C307E1 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				4D9ACAD02EA31E6800C307E1 /* com.astro.test.irsyadashari */,
@@ -163,6 +441,151 @@
 			productReference = 4D9ACAEA2EA31E6A00C307E1 /* com.astro.test.irsyadashariUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		4D9ACB322EA4CC2800C307E1 /* APIClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D9ACB4A2EA4CC2800C307E1 /* Build configuration list for PBXNativeTarget "APIClient" */;
+			buildPhases = (
+				4D9ACB2E2EA4CC2800C307E1 /* Headers */,
+				4D9ACB2F2EA4CC2800C307E1 /* Sources */,
+				4D9ACB302EA4CC2800C307E1 /* Frameworks */,
+				4D9ACB312EA4CC2800C307E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4D9ACB342EA4CC2800C307E1 /* APIClient */,
+			);
+			name = APIClient;
+			packageProductDependencies = (
+			);
+			productName = APIClient;
+			productReference = 4D9ACB332EA4CC2800C307E1 /* APIClient.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4D9ACB3C2EA4CC2800C307E1 /* APIClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D9ACB4E2EA4CC2800C307E1 /* Build configuration list for PBXNativeTarget "APIClientTests" */;
+			buildPhases = (
+				4D9ACB392EA4CC2800C307E1 /* Sources */,
+				4D9ACB3A2EA4CC2800C307E1 /* Frameworks */,
+				4D9ACB3B2EA4CC2800C307E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D9ACB402EA4CC2800C307E1 /* PBXTargetDependency */,
+				4D9ACB422EA4CC2800C307E1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4D9ACB432EA4CC2800C307E1 /* APIClientTests */,
+			);
+			name = APIClientTests;
+			packageProductDependencies = (
+			);
+			productName = APIClientTests;
+			productReference = 4D9ACB3D2EA4CC2800C307E1 /* APIClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4D9ACB582EA4CCAE00C307E1 /* PersistenceService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D9ACB702EA4CCAF00C307E1 /* Build configuration list for PBXNativeTarget "PersistenceService" */;
+			buildPhases = (
+				4D9ACB542EA4CCAE00C307E1 /* Headers */,
+				4D9ACB552EA4CCAE00C307E1 /* Sources */,
+				4D9ACB562EA4CCAE00C307E1 /* Frameworks */,
+				4D9ACB572EA4CCAE00C307E1 /* Resources */,
+				4D9ACBAD2EA4D0C900C307E1 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D9ACBAC2EA4D0C800C307E1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4D9ACB5A2EA4CCAE00C307E1 /* PersistenceService */,
+			);
+			name = PersistenceService;
+			packageProductDependencies = (
+			);
+			productName = PersistenceService;
+			productReference = 4D9ACB592EA4CCAE00C307E1 /* PersistenceService.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4D9ACB622EA4CCAF00C307E1 /* PersistenceServiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D9ACB732EA4CCAF00C307E1 /* Build configuration list for PBXNativeTarget "PersistenceServiceTests" */;
+			buildPhases = (
+				4D9ACB5F2EA4CCAF00C307E1 /* Sources */,
+				4D9ACB602EA4CCAF00C307E1 /* Frameworks */,
+				4D9ACB612EA4CCAF00C307E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D9ACB662EA4CCAF00C307E1 /* PBXTargetDependency */,
+				4D9ACB682EA4CCAF00C307E1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4D9ACB692EA4CCAF00C307E1 /* PersistenceServiceTests */,
+			);
+			name = PersistenceServiceTests;
+			packageProductDependencies = (
+			);
+			productName = PersistenceServiceTests;
+			productReference = 4D9ACB632EA4CCAF00C307E1 /* PersistenceServiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4D9ACB7A2EA4CD0300C307E1 /* Repository */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D9ACB922EA4CD0400C307E1 /* Build configuration list for PBXNativeTarget "Repository" */;
+			buildPhases = (
+				4D9ACB762EA4CD0300C307E1 /* Headers */,
+				4D9ACB772EA4CD0300C307E1 /* Sources */,
+				4D9ACB782EA4CD0300C307E1 /* Frameworks */,
+				4D9ACB792EA4CD0300C307E1 /* Resources */,
+				4D9ACBA82EA4D09C00C307E1 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D9ACBA72EA4D09C00C307E1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4D9ACB7C2EA4CD0300C307E1 /* Repository */,
+			);
+			name = Repository;
+			packageProductDependencies = (
+			);
+			productName = Repository;
+			productReference = 4D9ACB7B2EA4CD0300C307E1 /* Repository.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4D9ACB842EA4CD0400C307E1 /* RepositoryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D9ACB952EA4CD0400C307E1 /* Build configuration list for PBXNativeTarget "RepositoryTests" */;
+			buildPhases = (
+				4D9ACB812EA4CD0400C307E1 /* Sources */,
+				4D9ACB822EA4CD0400C307E1 /* Frameworks */,
+				4D9ACB832EA4CD0400C307E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D9ACB882EA4CD0400C307E1 /* PBXTargetDependency */,
+				4D9ACB8A2EA4CD0400C307E1 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4D9ACB8B2EA4CD0400C307E1 /* RepositoryTests */,
+			);
+			name = RepositoryTests;
+			packageProductDependencies = (
+			);
+			productName = RepositoryTests;
+			productReference = 4D9ACB852EA4CD0400C307E1 /* RepositoryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -181,6 +604,27 @@
 						TestTargetID = 4D9ACACD2EA31E6800C307E1;
 					};
 					4D9ACAE92EA31E6A00C307E1 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 4D9ACACD2EA31E6800C307E1;
+					};
+					4D9ACB322EA4CC2800C307E1 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					4D9ACB3C2EA4CC2800C307E1 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 4D9ACACD2EA31E6800C307E1;
+					};
+					4D9ACB582EA4CCAE00C307E1 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					4D9ACB622EA4CCAF00C307E1 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 4D9ACACD2EA31E6800C307E1;
+					};
+					4D9ACB7A2EA4CD0300C307E1 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					4D9ACB842EA4CD0400C307E1 = {
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = 4D9ACACD2EA31E6800C307E1;
 					};
@@ -203,6 +647,12 @@
 				4D9ACACD2EA31E6800C307E1 /* com.astro.test.irsyadashari */,
 				4D9ACADF2EA31E6A00C307E1 /* com.astro.test.irsyadashariTests */,
 				4D9ACAE92EA31E6A00C307E1 /* com.astro.test.irsyadashariUITests */,
+				4D9ACB322EA4CC2800C307E1 /* APIClient */,
+				4D9ACB3C2EA4CC2800C307E1 /* APIClientTests */,
+				4D9ACB582EA4CCAE00C307E1 /* PersistenceService */,
+				4D9ACB622EA4CCAF00C307E1 /* PersistenceServiceTests */,
+				4D9ACB7A2EA4CD0300C307E1 /* Repository */,
+				4D9ACB842EA4CD0400C307E1 /* RepositoryTests */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +673,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4D9ACAE82EA31E6A00C307E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB312EA4CC2800C307E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB3B2EA4CC2800C307E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB572EA4CCAE00C307E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB612EA4CCAF00C307E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB792EA4CD0300C307E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB832EA4CD0400C307E1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +745,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4D9ACB2F2EA4CC2800C307E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB392EA4CC2800C307E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB552EA4CCAE00C307E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB5F2EA4CCAF00C307E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB772EA4CD0300C307E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D9ACB812EA4CD0400C307E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -265,6 +799,61 @@
 			isa = PBXTargetDependency;
 			target = 4D9ACACD2EA31E6800C307E1 /* com.astro.test.irsyadashari */;
 			targetProxy = 4D9ACAEB2EA31E6A00C307E1 /* PBXContainerItemProxy */;
+		};
+		4D9ACB402EA4CC2800C307E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D9ACB322EA4CC2800C307E1 /* APIClient */;
+			targetProxy = 4D9ACB3F2EA4CC2800C307E1 /* PBXContainerItemProxy */;
+		};
+		4D9ACB422EA4CC2800C307E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D9ACACD2EA31E6800C307E1 /* com.astro.test.irsyadashari */;
+			targetProxy = 4D9ACB412EA4CC2800C307E1 /* PBXContainerItemProxy */;
+		};
+		4D9ACB472EA4CC2800C307E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D9ACB322EA4CC2800C307E1 /* APIClient */;
+			targetProxy = 4D9ACB462EA4CC2800C307E1 /* PBXContainerItemProxy */;
+		};
+		4D9ACB662EA4CCAF00C307E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D9ACB582EA4CCAE00C307E1 /* PersistenceService */;
+			targetProxy = 4D9ACB652EA4CCAF00C307E1 /* PBXContainerItemProxy */;
+		};
+		4D9ACB682EA4CCAF00C307E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D9ACACD2EA31E6800C307E1 /* com.astro.test.irsyadashari */;
+			targetProxy = 4D9ACB672EA4CCAF00C307E1 /* PBXContainerItemProxy */;
+		};
+		4D9ACB6D2EA4CCAF00C307E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D9ACB582EA4CCAE00C307E1 /* PersistenceService */;
+			targetProxy = 4D9ACB6C2EA4CCAF00C307E1 /* PBXContainerItemProxy */;
+		};
+		4D9ACB882EA4CD0400C307E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D9ACB7A2EA4CD0300C307E1 /* Repository */;
+			targetProxy = 4D9ACB872EA4CD0400C307E1 /* PBXContainerItemProxy */;
+		};
+		4D9ACB8A2EA4CD0400C307E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D9ACACD2EA31E6800C307E1 /* com.astro.test.irsyadashari */;
+			targetProxy = 4D9ACB892EA4CD0400C307E1 /* PBXContainerItemProxy */;
+		};
+		4D9ACB8F2EA4CD0400C307E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D9ACB7A2EA4CD0300C307E1 /* Repository */;
+			targetProxy = 4D9ACB8E2EA4CD0400C307E1 /* PBXContainerItemProxy */;
+		};
+		4D9ACBA72EA4D09C00C307E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D9ACB582EA4CCAE00C307E1 /* PersistenceService */;
+			targetProxy = 4D9ACBA62EA4D09C00C307E1 /* PBXContainerItemProxy */;
+		};
+		4D9ACBAC2EA4D0C800C307E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D9ACB322EA4CC2800C307E1 /* APIClient */;
+			targetProxy = 4D9ACBAB2EA4D0C800C307E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -405,6 +994,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,6 +1023,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,6 +1109,318 @@
 			};
 			name = Release;
 		};
+		4D9ACB4B2EA4CC2800C307E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAF4VGV8W6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.irsyadashari.APIClient;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4D9ACB4C2EA4CC2800C307E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAF4VGV8W6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.irsyadashari.APIClient;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4D9ACB4F2EA4CC2800C307E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAF4VGV8W6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.irsyadashari.APIClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/com.astro.test.irsyadashari.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/com.astro.test.irsyadashari";
+			};
+			name = Debug;
+		};
+		4D9ACB502EA4CC2800C307E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAF4VGV8W6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.irsyadashari.APIClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/com.astro.test.irsyadashari.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/com.astro.test.irsyadashari";
+			};
+			name = Release;
+		};
+		4D9ACB712EA4CCAF00C307E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAF4VGV8W6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.irsyadashari.PersistenceService;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4D9ACB722EA4CCAF00C307E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAF4VGV8W6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.irsyadashari.PersistenceService;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4D9ACB742EA4CCAF00C307E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAF4VGV8W6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.irsyadashari.PersistenceServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/com.astro.test.irsyadashari.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/com.astro.test.irsyadashari";
+			};
+			name = Debug;
+		};
+		4D9ACB752EA4CCAF00C307E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAF4VGV8W6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.irsyadashari.PersistenceServiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/com.astro.test.irsyadashari.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/com.astro.test.irsyadashari";
+			};
+			name = Release;
+		};
+		4D9ACB932EA4CD0400C307E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAF4VGV8W6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.irsyadashari.Repository;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4D9ACB942EA4CD0400C307E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAF4VGV8W6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.irsyadashari.Repository;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4D9ACB962EA4CD0400C307E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAF4VGV8W6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.irsyadashari.RepositoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/com.astro.test.irsyadashari.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/com.astro.test.irsyadashari";
+			};
+			name = Debug;
+		};
+		4D9ACB972EA4CD0400C307E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAF4VGV8W6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.irsyadashari.RepositoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/com.astro.test.irsyadashari.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/com.astro.test.irsyadashari";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -553,6 +1456,60 @@
 			buildConfigurations = (
 				4D9ACAFB2EA31E6A00C307E1 /* Debug */,
 				4D9ACAFC2EA31E6A00C307E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D9ACB4A2EA4CC2800C307E1 /* Build configuration list for PBXNativeTarget "APIClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D9ACB4B2EA4CC2800C307E1 /* Debug */,
+				4D9ACB4C2EA4CC2800C307E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D9ACB4E2EA4CC2800C307E1 /* Build configuration list for PBXNativeTarget "APIClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D9ACB4F2EA4CC2800C307E1 /* Debug */,
+				4D9ACB502EA4CC2800C307E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D9ACB702EA4CCAF00C307E1 /* Build configuration list for PBXNativeTarget "PersistenceService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D9ACB712EA4CCAF00C307E1 /* Debug */,
+				4D9ACB722EA4CCAF00C307E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D9ACB732EA4CCAF00C307E1 /* Build configuration list for PBXNativeTarget "PersistenceServiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D9ACB742EA4CCAF00C307E1 /* Debug */,
+				4D9ACB752EA4CCAF00C307E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D9ACB922EA4CD0400C307E1 /* Build configuration list for PBXNativeTarget "Repository" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D9ACB932EA4CD0400C307E1 /* Debug */,
+				4D9ACB942EA4CD0400C307E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D9ACB952EA4CD0400C307E1 /* Build configuration list for PBXNativeTarget "RepositoryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D9ACB962EA4CD0400C307E1 /* Debug */,
+				4D9ACB972EA4CD0400C307E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

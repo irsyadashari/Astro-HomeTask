@@ -5,7 +5,6 @@
 //  Created by Muh Irsyad Ashari on 10/19/25.
 //
 
-
 struct GitHubErrorResponse: Codable {
     let message: String
     let documentationUrl: String

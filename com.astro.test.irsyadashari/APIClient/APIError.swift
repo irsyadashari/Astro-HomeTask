@@ -1,17 +1,17 @@
 //
 //  APIError.swift
-//  com.astro.test.irsyadashari
+//  
 //
 //  Created by Muh Irsyad Ashari on 10/19/25.
 //
 
 import Foundation
 
-enum APIError: Error, LocalizedError {
+public enum APIError: Error, LocalizedError {
     case rateLimitExceeded(message: String)
     case badServerResponse
     
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .rateLimitExceeded(let message):
             return message

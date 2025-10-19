@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
+import PersistenceService
+import Repository
+import APIClient
 
 struct GitHubUserListView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    @StateObject private var viewModel: GitHubUserViewModel
+    @ObservedObject private var viewModel: GitHubUserViewModel
     
-    init() {
-        _viewModel = StateObject(
-            wrappedValue: GitHubUserViewModel(context: PersistenceController.shared.container.viewContext)
-        )
+    public init(viewModel: GitHubUserViewModel) {
+        self.viewModel = viewModel
     }
     
     // MARK: - Main Body
@@ -97,7 +97,7 @@ struct GitHubUserListView: View {
         } else {
             List {
                 ForEach(viewModel.displayedUsers) { user in
-                    UserRowView(user: user) {
+                    UserRowView(avatarUrl: user.avatarUrl, name: user.login, isLiked: user.isLiked) {
                         viewModel.toggleLike(for: user)
                     }
                     .onAppear {
@@ -159,12 +159,5 @@ struct GitHubUserListView: View {
             }
         }
         .frame(maxHeight: .infinity)
-    }
-}
-
-struct GitHubUserListView_Previews: PreviewProvider {
-    static var previews: some View {
-        GitHubUserListView()
-            .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
     }
 }

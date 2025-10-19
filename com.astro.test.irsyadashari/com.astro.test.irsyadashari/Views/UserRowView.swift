@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct UserRowView: View {
-    let user: User
+    let avatarUrl: String
+    let name: String
+    let isLiked: Bool
+    
     let onLikeTapped: () -> Void
     
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: user.avatarUrl)) { image in
+            AsyncImage(url: URL(string: avatarUrl)) { image in
                 image.resizable()
                     .aspectRatio(contentMode: .fill)
                     .clipShape(Circle())
@@ -24,14 +27,14 @@ struct UserRowView: View {
             }
             .frame(width: 44, height: 44)
             
-            Text(user.login)
+            Text(name)
                 .font(.body)
             
             Spacer()
         
             Button(action: onLikeTapped) {
-                Image(systemName: user.isLiked ? "heart.fill" : "heart")
-                    .foregroundColor(user.isLiked ? .red : .gray)
+                Image(systemName: isLiked ? "heart.fill" : "heart")
+                    .foregroundColor(isLiked ? .red : .gray)
             }
             .buttonStyle(.plain)
         }
